@@ -42,31 +42,24 @@ typedef enum {
     {
         self.contentViewFrameDelegate = self;
         
-        //Init shadow view
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
-        {
-            UIImage *shadowImage = [UIImage imageNamed:@"ComOpenthreadOTNotificationNotifShadow.png"];
-            shadowImage = [shadowImage stretchableImageWithLeftCapWidth:47 topCapHeight:47];
-            _cubeShadowView = [[UIImageView alloc] initWithFrame:CGRectZero];
-            _cubeShadowView.image = shadowImage;
-            [self.contentView addSubview:_cubeShadowView];
-        }
-        
         _cubeRotateView = [[ComOpenthreadOTCubeRotateView alloc] initWithFrame:self.contentView.bounds];
         _cubeRotateView.clipsToBounds = YES;
         _cubeRotateView.backgroundColor = [UIColor blackColor];
         [self.contentView addSubview:_cubeRotateView];
         
-        //Set shadow frame
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
-        {
-            CGRect shadowFrame = _cubeRotateView.frame;
-            shadowFrame.origin.x -= 27;
-            shadowFrame.origin.y -= 27;
-            shadowFrame.size.width += 54;
-            shadowFrame.size.height += 54;
-            _cubeShadowView.frame = shadowFrame;
-        }
+        //Init shadow view
+        
+        UIImage *shadowImage = [UIImage imageNamed:@"ComOpenthreadOTNotificationNotifShadow.png"];
+        shadowImage = [shadowImage stretchableImageWithLeftCapWidth:47 topCapHeight:47];
+        _cubeShadowView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        _cubeShadowView.image = shadowImage;
+        CGRect shadowFrame = _cubeRotateView.frame;
+        shadowFrame.origin.x -= 27;
+        shadowFrame.origin.y -= 27;
+        shadowFrame.size.width += 54;
+        shadowFrame.size.height += 54;
+        _cubeShadowView.frame = shadowFrame;
+        [self.contentView insertSubview:_cubeShadowView belowSubview:_cubeRotateView];
         
         //Add button to cube rotate view
         _cubeTouchButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -91,24 +84,18 @@ typedef enum {
     _cubeRotateView.frame = self.contentView.bounds;
     _cubeTouchButton.frame = _cubeRotateView.bounds;
     
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
-    {
-        CGRect shadowFrame = _cubeRotateView.frame;
-        shadowFrame.origin.x -= 27;
-        shadowFrame.origin.y -= 27;
-        shadowFrame.size.width += 54;
-        shadowFrame.size.height += 54;
-        _cubeShadowView.frame = shadowFrame;
-    }
+    CGRect shadowFrame = _cubeRotateView.frame;
+    shadowFrame.origin.x -= 27;
+    shadowFrame.origin.y -= 27;
+    shadowFrame.size.width += 54;
+    shadowFrame.size.height += 54;
+    _cubeShadowView.frame = shadowFrame;
     
     //Avoid status bar screenshot be stretched, hide self when cube rotating out.
     if (self.state == OTNotificationWindowStateCubeRotatingOut)
     {
         [self setHiddenPrivate:YES];
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
-        {
-            _cubeShadowView.hidden = YES;
-        }
+        _cubeShadowView.hidden = YES;
         self.state = OTNotificationWindowStateHidden;
     }
 }
@@ -190,18 +177,15 @@ typedef enum {
         [_cubeRotateView setCurrentView:[[UIImageView alloc] initWithImage:screenshot]];
         [self setHiddenPrivate:NO];
         
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
-        {
-            _cubeShadowView.alpha = 0;
-            _cubeShadowView.hidden = NO;
-            [UIView animateWithDuration:0.2f
-                                  delay:0.3f
-                                options:UIViewAnimationOptionCurveEaseIn
-                             animations:^{
-                                 _cubeShadowView.alpha = 1;
+        _cubeShadowView.alpha = 0;
+        _cubeShadowView.hidden = NO;
+        [UIView animateWithDuration:0.2f
+                              delay:0.3f
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             _cubeShadowView.alpha = 1;
 
-                             } completion:nil];
-         }
+                         } completion:nil];
     }
     
     self.state = OTNotificationWindowStateCubeRotatingIn;
@@ -291,18 +275,18 @@ typedef enum {
             ((ComOpenthreadOTNotificationContentView *)currentView).backgroundImage = screenshot;
             ((ComOpenthreadOTNotificationContentView *)currentView).backgroundImageHidden = NO;
         }
-        
-        //Hide cube's shadow
-        _cubeShadowView.alpha = 1;
-        [UIView animateWithDuration:0.15f
-                              delay:0.35f
-                            options:UIViewAnimationOptionCurveEaseIn
-                         animations:^{
-                             _cubeShadowView.alpha = 0;
-                         } completion:^(BOOL finished) {
-                             _cubeShadowView.hidden = YES;
-                         }];
     }
+    
+    //Hide cube's shadow
+    _cubeShadowView.alpha = 1;
+    [UIView animateWithDuration:0.15f
+                          delay:0.35f
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         _cubeShadowView.alpha = 0;
+                     } completion:^(BOOL finished) {
+                         _cubeShadowView.hidden = YES;
+                     }];
     
     [_cubeRotateView rotateToView:[[UIImageView alloc] initWithImage:screenshot]
                              from:OTCubeViewRotateSideFromUpSide
