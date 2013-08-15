@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		42A2E0F217BCEB4D007264FD /* OTNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A2E0F117BCEB4D007264FD /* OTNotificationManager.m */; };
+		42A2E0F617BCF431007264FD /* OTBasicNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A2E0F517BCF431007264FD /* OTBasicNotificationView.m */; };
 		42BF0B5117BCC6C40045A253 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BF0B5017BCC6C40045A253 /* UIKit.framework */; };
 		42BF0B5317BCC6C40045A253 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BF0B5217BCC6C40045A253 /* Foundation.framework */; };
 		42BF0B5517BCC6C40045A253 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BF0B5417BCC6C40045A253 /* CoreGraphics.framework */; };
@@ -44,6 +45,8 @@
 		42A2E0F017BCEB4D007264FD /* OTNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTNotificationManager.h; sourceTree = "<group>"; };
 		42A2E0F117BCEB4D007264FD /* OTNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTNotificationManager.m; sourceTree = "<group>"; };
 		42A2E0F317BCF39A007264FD /* OTNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTNotification.h; sourceTree = "<group>"; };
+		42A2E0F417BCF431007264FD /* OTBasicNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTBasicNotificationView.h; sourceTree = "<group>"; };
+		42A2E0F517BCF431007264FD /* OTBasicNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTBasicNotificationView.m; sourceTree = "<group>"; };
 		42BF0B4D17BCC6C40045A253 /* OTNotificationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OTNotificationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42BF0B5017BCC6C40045A253 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		42BF0B5217BCC6C40045A253 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -262,10 +265,12 @@
 		42BF0B9917BCC7900045A253 /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				42BF0B9A17BCC7900045A253 /* OTNotificationMessage.h */,
-				42BF0B9B17BCC7900045A253 /* OTNotificationMessage.m */,
 				42A2E0F017BCEB4D007264FD /* OTNotificationManager.h */,
 				42A2E0F117BCEB4D007264FD /* OTNotificationManager.m */,
+				42BF0B9A17BCC7900045A253 /* OTNotificationMessage.h */,
+				42BF0B9B17BCC7900045A253 /* OTNotificationMessage.m */,
+				42A2E0F417BCF431007264FD /* OTBasicNotificationView.h */,
+				42A2E0F517BCF431007264FD /* OTBasicNotificationView.m */,
 				42BF0B9C17BCC7900045A253 /* OTNotificationViewProtocol.h */,
 			);
 			path = Public;
@@ -372,6 +377,7 @@
 				42BF0BAD17BCC7900045A253 /* ComOpenthreadOTNotificationMessageWindow.m in Sources */,
 				42BF0BAE17BCC7900045A253 /* OTNotificationMessage.m in Sources */,
 				42A2E0F217BCEB4D007264FD /* OTNotificationManager.m in Sources */,
+				42A2E0F617BCF431007264FD /* OTBasicNotificationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

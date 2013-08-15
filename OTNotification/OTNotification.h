@@ -9,8 +9,9 @@
 #ifndef OTNotificationDemo_OTNotification_h
 #define OTNotificationDemo_OTNotification_h
 
-#import "OTNotificationMessage.h"
 #import "OTNotificationManager.h"
+#import "OTNotificationMessage.h"
+#import "OTBasicNotificationView.h"
 #import "OTNotificationViewProtocol.h"
 
 #endif
