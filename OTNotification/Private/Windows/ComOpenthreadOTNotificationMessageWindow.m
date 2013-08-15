@@ -269,6 +269,11 @@ typedef enum {
 
 - (void)cubeOut
 {
+    if (self.state == OTNotificationWindowStateCubeRotatingOut)
+    {
+        return;
+    }
+    
     self.state = OTNotificationWindowStateCubeRotatingOut;
     UIImage *screenshot = [self getScreenshotForCubeRect];
     
@@ -326,6 +331,34 @@ typedef enum {
     if ([notificationView conformsToProtocol:@protocol(OTNotificationViewProtocol)])
     {
         UIView<OTNotificationViewProtocol> *touchedView = (UIView<OTNotificationViewProtocol> *)notificationView;
+        
+        //If view should hide on touch
+        if ([touchedView respondsToSelector:@selector(otNotificationShouldHideOnTouch)] &&
+            touchedView.otNotificationShouldHideOnTouch)
+        {
+            //If this is the last view in stack
+            //Cancel `handleNotifications` and `cubeOut` perform
+            //call `cubeOut` directly
+            if (_notificationViews.count <= 0)
+            {
+                [NSObject cancelPreviousPerformRequestsWithTarget:self
+                                                         selector:@selector(handleNotifications)
+                                                           object:nil];
+                [NSObject cancelPreviousPerformRequestsWithTarget:self
+                                                         selector:@selector(cubeOut)
+                                                           object:nil];
+                [self cubeOut];
+            }
+            //If this is not the last view in stack
+            //Cancel `handleNotifications` perform
+            //call `handleNotifications` directly
+            else
+            {
+                [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handleNotifications) object:nil];
+                [self handleNotifications];
+            }
+        }
+        
         if ([touchedView respondsToSelector:@selector(otNotificationTouchBlock)] &&
             touchedView.otNotificationTouchBlock)
         {
