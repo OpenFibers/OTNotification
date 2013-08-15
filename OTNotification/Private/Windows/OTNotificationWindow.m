@@ -27,6 +27,7 @@ typedef enum {
 @implementation OTNotificationWindow
 {
     OTCubeRotateView *_cubeRotateView;
+    UIImageView *_cubeShadowView;
     NSMutableArray *_notificationViews;
 }
 
@@ -38,14 +39,30 @@ typedef enum {
     if (self)
     {
         self.contentViewFrameDelegate = self;
+        
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+        {
+            UIImage *shadowImage = [UIImage imageNamed:@"ComOpenthreadOTNotificationNotifShadow.png"];
+            shadowImage = [shadowImage stretchableImageWithLeftCapWidth:47 topCapHeight:47];
+            _cubeShadowView = [[UIImageView alloc] initWithFrame:CGRectZero];
+            _cubeShadowView.image = shadowImage;
+            [self.contentView addSubview:_cubeShadowView];
+        }
+        
         _cubeRotateView = [[OTCubeRotateView alloc] initWithFrame:self.contentView.bounds];
-        _cubeRotateView.clipsToBounds = NO;
+        _cubeRotateView.clipsToBounds = YES;
         _cubeRotateView.backgroundColor = [UIColor blackColor];
         [self.contentView addSubview:_cubeRotateView];
         
-        _cubeRotateView.layer.shadowRadius = 15.0f;
-        _cubeRotateView.layer.shadowColor = [UIColor blackColor].CGColor;
-        _cubeRotateView.layer.shadowOpacity = 1;
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+        {
+            CGRect shadowFrame = _cubeRotateView.frame;
+            shadowFrame.origin.x -= 27;
+            shadowFrame.origin.y -= 27;
+            shadowFrame.size.width += 54;
+            shadowFrame.size.height += 54;
+            _cubeShadowView.frame = shadowFrame;
+        }
         
         UIView *currentRotateView = [[UIView alloc] initWithFrame:CGRectZero];
         [_cubeRotateView setCurrentView:currentRotateView];
@@ -63,10 +80,24 @@ typedef enum {
 {
     _cubeRotateView.frame = self.contentView.bounds;
     
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+    {
+        CGRect shadowFrame = _cubeRotateView.frame;
+        shadowFrame.origin.x -= 27;
+        shadowFrame.origin.y -= 27;
+        shadowFrame.size.width += 54;
+        shadowFrame.size.height += 54;
+        _cubeShadowView.frame = shadowFrame;
+    }
+    
     //Avoid status bar screenshot be stretched, hide self when cube rotating out.
     if (self.state == OTNotificationWindowStateCubeRotatingOut)
     {
         [self setHiddenPrivate:YES];
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+        {
+            _cubeShadowView.hidden = YES;
+        }
         self.state = OTNotificationWindowStateHidden;
     }
 }
