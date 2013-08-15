@@ -27,6 +27,7 @@ typedef enum {
 @implementation ComOpenthreadOTNotificationMessageWindow
 {
     ComOpenthreadOTCubeRotateView *_cubeRotateView;
+    UIButton *_cubeTouchButton;
     UIImageView *_cubeShadowView;
     NSMutableArray *_notificationViews;
 }
@@ -40,6 +41,7 @@ typedef enum {
     {
         self.contentViewFrameDelegate = self;
         
+        //Init shadow view
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
         {
             UIImage *shadowImage = [UIImage imageNamed:@"ComOpenthreadOTNotificationNotifShadow.png"];
@@ -54,6 +56,7 @@ typedef enum {
         _cubeRotateView.backgroundColor = [UIColor blackColor];
         [self.contentView addSubview:_cubeRotateView];
         
+        //Set shadow frame
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
         {
             CGRect shadowFrame = _cubeRotateView.frame;
@@ -63,6 +66,12 @@ typedef enum {
             shadowFrame.size.height += 54;
             _cubeShadowView.frame = shadowFrame;
         }
+        
+        //Add button to cube rotate view
+        _cubeTouchButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _cubeTouchButton.frame = _cubeRotateView.bounds;
+        [_cubeTouchButton addTarget:self action:@selector(cubeTouched) forControlEvents:UIControlEventTouchDown];
+        [_cubeRotateView addSubview:_cubeTouchButton];
         
         UIView *currentRotateView = [[UIView alloc] initWithFrame:CGRectZero];
         [_cubeRotateView setCurrentView:currentRotateView];
@@ -79,6 +88,7 @@ typedef enum {
 - (void)contentViewFrameChangedTo:(CGRect)frame
 {
     _cubeRotateView.frame = self.contentView.bounds;
+    _cubeTouchButton.frame = _cubeRotateView.bounds;
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
     {
@@ -295,6 +305,17 @@ typedef enum {
                     self.state = OTNotificationWindowStateHidden;
                 }];
     return;
+}
+
+- (void)cubeTouched
+{
+    if (self.state != OTNotificationWindowStateShowing &&
+        self.state != OTNotificationWindowStateWaitingCubeRotatingOut)
+    {
+        return;
+    }
+    
+    NSLog(@"touched!");
 }
 
 - (UIImage *)getScreenshotForCubeRect

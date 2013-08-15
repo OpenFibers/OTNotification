@@ -199,9 +199,9 @@
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
     UIView *view = [super hitTest:point withEvent:event];
-    if (view == _contentView)
+    if ([view isDescendantOfView:_contentView])
     {
-        return _contentView;
+        return view;
     }
     return nil;
 }

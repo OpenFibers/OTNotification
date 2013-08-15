@@ -20,6 +20,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor grayColor];
 
+    self.title = @"OTNotification Demo";
+    
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     button.frame = CGRectMake(140, 240, 40, 40);
     [button addTarget:self action:@selector(buttonTouched) forControlEvents:UIControlEventTouchUpInside];
