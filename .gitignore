@@ -1,0 +1,6 @@
+iOSInjectionProject/
+*.xcodeproj/project.xcworkspace/
+*.xcodeproj/xcuserdata/
+.DS_Store
+*.pch.save
+main.m.save
