@@ -31,7 +31,7 @@
 
 #pragma mark - Check if notification window is hidden.
 
-//default is YES.
+//Check if notification window is hidden. Default is YES.
 @property(nonatomic, readonly) BOOL isNotificationWindowHidden;
 
 #pragma mark - Rotating Methods

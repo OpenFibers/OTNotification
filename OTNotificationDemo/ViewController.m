@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "ComOpenthreadOTNotificationMessageWindow.h"
+#import "OTNotificationManager.h"
 
 @interface ViewController ()
 
@@ -28,11 +28,11 @@
 
 - (void)buttonTouched
 {
-    ComOpenthreadOTNotificationMessageWindow *notifWindow = [ComOpenthreadOTNotificationMessageWindow sharedInstance];
+    OTNotificationManager *notificationManager = [OTNotificationManager defaultManager];
     OTNotificationMessage *notificationMessage = [[OTNotificationMessage alloc] init];
     notificationMessage.title = @"Notification";
     notificationMessage.message = @"Very very very very very very very very very very very very very long notification";
-    [notifWindow postNotificationMessage:notificationMessage];
+    [notificationManager postNotificationMessage:notificationMessage];
 }
 
 - (BOOL)shouldAutorotate
