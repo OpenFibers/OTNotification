@@ -22,4 +22,11 @@
 //18x18 in none-retina screen, 36x36 in retina screen is encouraged.
 @property (nonatomic, retain) UIImage *iconImage;
 
+//touch block
+@property (nonatomic, copy) void (^touchBlock) (void);
+
+//touch target and selector
+@property (nonatomic, assign) id touchTarget;
+@property (nonatomic, assign) SEL touchSelector;
+
 @end

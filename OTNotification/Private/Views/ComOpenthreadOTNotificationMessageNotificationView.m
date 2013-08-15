@@ -103,6 +103,9 @@
     self.message = notificationMessage.message;
     self.showIcon = notificationMessage.showIcon;
     self.iconImage = notificationMessage.iconImage;
+    self.touchBlock = notificationMessage.touchBlock;
+    self.touchTarget = notificationMessage.touchTarget;
+    self.touchSelector = notificationMessage.touchSelector;
 }
 
 @end

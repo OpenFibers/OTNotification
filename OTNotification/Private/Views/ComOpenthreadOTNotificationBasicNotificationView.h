@@ -11,4 +11,11 @@
 
 @interface ComOpenthreadOTNotificationBasicNotificationView : UIView <OTNotificationViewProtocol>
 
+//touch block
+@property (nonatomic, copy) void (^touchBlock) (void);
+
+//touch target and selector
+@property (nonatomic, assign) id touchTarget;
+@property (nonatomic, assign) SEL touchSelector;
+
 @end
