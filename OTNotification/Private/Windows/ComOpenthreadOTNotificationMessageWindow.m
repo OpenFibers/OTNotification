@@ -30,7 +30,7 @@ typedef enum {
     ComOpenthreadOTCubeRotateView *_cubeRotateView;
     UIButton *_cubeTouchButton;
     UIImageView *_cubeShadowView;
-    NSMutableArray *_notificationViews;
+    NSMutableArray *_notificationStack;
 }
 
 @dynamic shouldAutoRotateToInterfaceOrientation;
@@ -77,7 +77,7 @@ typedef enum {
         UIView *currentRotateView = [[UIView alloc] initWithFrame:CGRectZero];
         [_cubeRotateView setCurrentView:currentRotateView];
         
-        _notificationViews = [NSMutableArray array];
+        _notificationStack = [NSMutableArray array];
         
         [self setHiddenPrivate:YES];
         self.state = OTNotificationWindowStateHidden;
@@ -116,38 +116,38 @@ typedef enum {
 //Remove notification message
 - (void)removeNotificationMessage:(OTNotificationMessage *)message
 {
-    if ([_notificationViews containsObject:message])
+    if ([_notificationStack containsObject:message])
     {
-        [_notificationViews removeObject:message];
+        [_notificationStack removeObject:message];
     }
 }
 
 //Post notification message
 - (void)postNotificationMessage:(OTNotificationMessage *)message
 {
-    if ([_notificationViews containsObject:message])
+    if ([_notificationStack containsObject:message])
     {
         return;
     }
-    [_notificationViews addObject:message];
+    [_notificationStack addObject:message];
     [self checkStatusAfterPost];
 }
 
 - (void)removeNotificationView:(UIView *)view
 {
-    if([_notificationViews containsObject:view])
+    if([_notificationStack containsObject:view])
     {
-        [_notificationViews removeObject:view];
+        [_notificationStack removeObject:view];
     }
 }
 
 - (void)postNotificationView:(UIView *)view
 {
-    if ([_notificationViews containsObject:view])
+    if ([_notificationStack containsObject:view])
     {
         return;
     }
-    [_notificationViews addObject:view];
+    [_notificationStack addObject:view];
     [self checkStatusAfterPost];
 }
 
@@ -175,7 +175,7 @@ typedef enum {
 - (void)handleNotifications
 {
     //If no notification comes in, cube out.
-    if (_notificationViews.count <= 0)
+    if (_notificationStack.count <= 0)
     {
         self.state = OTNotificationWindowStateWaitingCubeRotatingOut;
         [self performSelector:@selector(cubeOut) withObject:nil afterDelay:3];
@@ -207,8 +207,8 @@ typedef enum {
     self.state = OTNotificationWindowStateCubeRotatingIn;
     
     //Get a notification view from notification view stack, and remove it from stack.
-    id obj = _notificationViews[0];
-    [_notificationViews removeObject:obj];
+    id obj = _notificationStack[0];
+    [_notificationStack removeObject:obj];
     
     UIView *view = nil;
     if ([obj isKindOfClass:[UIView class]])
@@ -339,7 +339,7 @@ typedef enum {
             //If this is the last view in stack
             //Cancel `handleNotifications` and `cubeOut` perform
             //call `cubeOut` directly
-            if (_notificationViews.count <= 0)
+            if (_notificationStack.count <= 0)
             {
                 [NSObject cancelPreviousPerformRequestsWithTarget:self
                                                          selector:@selector(handleNotifications)
