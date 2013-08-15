@@ -178,6 +178,19 @@ typedef enum {
         screenshot = [self getScreenshotForCubeRect];
         [_cubeRotateView setCurrentView:[[UIImageView alloc] initWithImage:screenshot]];
         [self setHiddenPrivate:NO];
+        
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+        {
+            _cubeShadowView.alpha = 0;
+            _cubeShadowView.hidden = NO;
+            [UIView animateWithDuration:0.3f
+                                  delay:0.2f
+                                options:UIViewAnimationOptionCurveEaseIn
+                             animations:^{
+                                 _cubeShadowView.alpha = 1;
+
+                             } completion:nil];
+         }
     }
     
     self.state = OTNotificationWindowStateCubeRotatingIn;
@@ -252,14 +265,27 @@ typedef enum {
     _cubeRotateView.backgroundColor = [UIColor blackColor];
     
     //If on ipad, set rotating out content view's background image to screenshot
+    //And hide cube's shadow
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
     {
+        //set rotating out content view's background image to screenshot
         UIView *currentView = _cubeRotateView.currentView;
         if ([currentView isKindOfClass:[OTNotificationContentView class]])
         {
             ((OTNotificationContentView *)currentView).backgroundImage = screenshot;
             ((OTNotificationContentView *)currentView).backgroundImageHidden = NO;
         }
+        
+        //Hide cube's shadow
+        _cubeShadowView.alpha = 1;
+        [UIView animateWithDuration:0.3f
+                              delay:0.2f
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             _cubeShadowView.alpha = 0;
+                         } completion:^(BOOL finished) {
+                             _cubeShadowView.hidden = YES;
+                         }];
     }
     
     [_cubeRotateView rotateToView:[[UIImageView alloc] initWithImage:screenshot]
