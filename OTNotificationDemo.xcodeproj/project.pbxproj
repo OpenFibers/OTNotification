@@ -43,6 +43,7 @@
 /* Begin PBXFileReference section */
 		42A2E0F017BCEB4D007264FD /* OTNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTNotificationManager.h; sourceTree = "<group>"; };
 		42A2E0F117BCEB4D007264FD /* OTNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTNotificationManager.m; sourceTree = "<group>"; };
+		42A2E0F317BCF39A007264FD /* OTNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTNotification.h; sourceTree = "<group>"; };
 		42BF0B4D17BCC6C40045A253 /* OTNotificationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OTNotificationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42BF0B5017BCC6C40045A253 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		42BF0B5217BCC6C40045A253 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -167,6 +168,7 @@
 		42BF0B7C17BCC78F0045A253 /* OTNotification */ = {
 			isa = PBXGroup;
 			children = (
+				42A2E0F317BCF39A007264FD /* OTNotification.h */,
 				42BF0B9917BCC7900045A253 /* Public */,
 				42BF0B7D17BCC78F0045A253 /* Private */,
 				42BF0B9D17BCC7900045A253 /* Resources */,

@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "OTNotificationManager.h"
+#import "OTNotification.h"
 
 @interface ViewController ()
 
