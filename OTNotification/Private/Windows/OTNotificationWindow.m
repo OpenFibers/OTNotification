@@ -183,8 +183,8 @@ typedef enum {
         {
             _cubeShadowView.alpha = 0;
             _cubeShadowView.hidden = NO;
-            [UIView animateWithDuration:0.3f
-                                  delay:0.2f
+            [UIView animateWithDuration:0.2f
+                                  delay:0.3f
                                 options:UIViewAnimationOptionCurveEaseIn
                              animations:^{
                                  _cubeShadowView.alpha = 1;
@@ -278,8 +278,8 @@ typedef enum {
         
         //Hide cube's shadow
         _cubeShadowView.alpha = 1;
-        [UIView animateWithDuration:0.3f
-                              delay:0.2f
+        [UIView animateWithDuration:0.15f
+                              delay:0.35f
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
                              _cubeShadowView.alpha = 0;
