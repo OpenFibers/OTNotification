@@ -6,7 +6,6 @@
 //
 //  A window simulate push notifications in iOS6.
 //  TODO:
-//      touch in cube, delegate
 //      add shadow to iphone
 
 #import "ComOpenthreadOTNotificationRotateWindow.h"
