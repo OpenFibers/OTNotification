@@ -18,7 +18,7 @@
 //default is YES. don't set value to `hidden` property, nothing will happen
 @property(nonatomic,getter=isHidden) BOOL hidden;
 
-//Auto rotate
+//Auto rotate, default is `YES`.
 @property (nonatomic, assign) BOOL shouldAutoRotateToInterfaceOrientation;
 
 //Manual rotate

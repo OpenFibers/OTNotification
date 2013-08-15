@@ -17,7 +17,7 @@
 
 @interface ComOpenthreadOTNotificationRotateWindow : ComOpenthreadOTNotificationNoneRenderInContextWindow
 
-//Auto rotate
+//Auto rotate, default is `YES`.
 @property (nonatomic, assign) BOOL shouldAutoRotateToInterfaceOrientation;
 
 //Manual rotate
