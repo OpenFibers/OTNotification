@@ -164,8 +164,8 @@
 		42BF0B7C17BCC78F0045A253 /* OTNotification */ = {
 			isa = PBXGroup;
 			children = (
-				42BF0B7D17BCC78F0045A253 /* Private */,
 				42BF0B9917BCC7900045A253 /* Public */,
+				42BF0B7D17BCC78F0045A253 /* Private */,
 				42BF0B9D17BCC7900045A253 /* Resources */,
 			);
 			path = OTNotification;
@@ -174,9 +174,9 @@
 		42BF0B7D17BCC78F0045A253 /* Private */ = {
 			isa = PBXGroup;
 			children = (
-				42BF0B7E17BCC78F0045A253 /* ThirdPartyLibs */,
-				42BF0B8B17BCC78F0045A253 /* Views */,
 				42BF0B9217BCC7900045A253 /* Windows */,
+				42BF0B8B17BCC78F0045A253 /* Views */,
+				42BF0B7E17BCC78F0045A253 /* ThirdPartyLibs */,
 			);
 			path = Private;
 			sourceTree = "<group>";
