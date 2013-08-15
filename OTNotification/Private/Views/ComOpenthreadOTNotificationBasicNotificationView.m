@@ -17,6 +17,7 @@
 @synthesize otNotificationTouchBlock = _otNotificationTouchBlock;
 @synthesize otNotificationTouchTarget = _otNotificationTouchTarget;
 @synthesize otNotificationTouchSelector = _otNotificationTouchSelector;
+@synthesize otNotificationShouldHideOnTouch = _otNotificationShouldHideOnTouch;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -45,6 +46,8 @@
         _backgroundImageView.image = backgroundImage;
         
         [self addSubview:_backgroundImageView];
+        
+        self.otNotificationShouldHideOnTouch = YES;
     }
     return self;
 }

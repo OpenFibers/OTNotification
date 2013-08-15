@@ -25,4 +25,7 @@
 @property (nonatomic, assign) id otNotificationTouchTarget;
 @property (nonatomic, assign) SEL otNotificationTouchSelector;
 
+//Should hide on touch.
+@property (nonatomic, assign) BOOL otNotificationShouldHideOnTouch;
+
 @end
