@@ -14,6 +14,10 @@
     UIImageView *_backgroundImageView;
 }
 
+@synthesize otNotificationTouchBlock;
+@synthesize otNotificationTouchTarget;
+@synthesize otNotificationTouchSelector;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];

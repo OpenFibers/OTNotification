@@ -23,10 +23,10 @@
 @property (nonatomic, retain) UIImage *iconImage;
 
 //touch block
-@property (nonatomic, copy) void (^touchBlock) (void);
+@property (nonatomic, copy) void (^otNotificationTouchBlock) (void);
 
 //touch target and selector
-@property (nonatomic, assign) id touchTarget;
-@property (nonatomic, assign) SEL touchSelector;
+@property (nonatomic, assign) id otNotificationTouchTarget;
+@property (nonatomic, assign) SEL otNotificationTouchSelector;
 
 @end

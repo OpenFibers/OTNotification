@@ -11,6 +11,7 @@
 #import "ComOpenthreadOTScreenshotHelper.h"
 #import "ComOpenthreadOTNotificationContentView.h"
 #import "ComOpenthreadOTNotificationMessageNotificationView.h"
+#import <objc/message.h>
 
 typedef enum {
     OTNotificationWindowStateHidden,//Hidding
@@ -315,7 +316,28 @@ typedef enum {
         return;
     }
     
-    NSLog(@"touched!");
+    UIView *contentView = _cubeRotateView.currentView;
+    if (![contentView isKindOfClass:[ComOpenthreadOTNotificationContentView class]])
+    {
+        return;
+    }
+
+    UIView *notificationView = ((ComOpenthreadOTNotificationContentView *)contentView).notificationView;
+    if ([notificationView conformsToProtocol:@protocol(OTNotificationViewProtocol)])
+    {
+        UIView<OTNotificationViewProtocol> *touchedView = (UIView<OTNotificationViewProtocol> *)notificationView;
+        if (touchedView.otNotificationTouchBlock)
+        {
+            touchedView.otNotificationTouchBlock();
+        }
+        if (touchedView.otNotificationTouchTarget && touchedView.otNotificationTouchSelector)
+        {
+            //If touch selector setted but not implemented, raise exception.
+            objc_msgSend(touchedView.otNotificationTouchTarget,
+                         touchedView.otNotificationTouchSelector,
+                         touchedView);
+        }
+    }
 }
 
 - (UIImage *)getScreenshotForCubeRect
