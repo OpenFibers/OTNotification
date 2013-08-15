@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface OTScreenshotHelper : NSObject
+@interface ComOpenthreadOTScreenshotHelper : NSObject
 
 //Get the screenshot of a view.
 + (UIImage *)screenshotOfView:(UIView *)view;

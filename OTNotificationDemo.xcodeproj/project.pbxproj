@@ -20,10 +20,10 @@
 		42BF0B7717BCC73E0045A253 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BF0B7617BCC73E0045A253 /* QuartzCore.framework */; };
 		42BF0B7A17BCC7510045A253 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 42BF0B7817BCC7510045A253 /* Icon.png */; };
 		42BF0B7B17BCC7510045A253 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42BF0B7917BCC7510045A253 /* Icon@2x.png */; };
-		42BF0BA417BCC7900045A253 /* OTCubeRotateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF0B8117BCC78F0045A253 /* OTCubeRotateView.m */; };
+		42BF0BA417BCC7900045A253 /* ComOpenthreadOTCubeRotateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF0B8117BCC78F0045A253 /* ComOpenthreadOTCubeRotateView.m */; };
 		42BF0BA517BCC7900045A253 /* ComOpenThreadOTScreenshotHelperSwizzleHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF0B8517BCC78F0045A253 /* ComOpenThreadOTScreenshotHelperSwizzleHelper.m */; };
 		42BF0BA617BCC7900045A253 /* UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF0B8717BCC78F0045A253 /* UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.m */; };
-		42BF0BA717BCC7900045A253 /* OTScreenshotHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF0B8A17BCC78F0045A253 /* OTScreenshotHelper.m */; };
+		42BF0BA717BCC7900045A253 /* ComOpenthreadOTScreenshotHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF0B8A17BCC78F0045A253 /* ComOpenthreadOTScreenshotHelper.m */; };
 		42BF0BA817BCC7900045A253 /* ComOpenthreadOTNotificationBasicNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF0B8D17BCC78F0045A253 /* ComOpenthreadOTNotificationBasicNotificationView.m */; };
 		42BF0BA917BCC7900045A253 /* ComOpenthreadOTNotificationMessageNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF0B8F17BCC78F0045A253 /* ComOpenthreadOTNotificationMessageNotificationView.m */; };
 		42BF0BAA17BCC7900045A253 /* ComOpenthreadOTNotificationContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BF0B9117BCC7900045A253 /* ComOpenthreadOTNotificationContentView.m */; };
@@ -58,14 +58,14 @@
 		42BF0B7617BCC73E0045A253 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		42BF0B7817BCC7510045A253 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		42BF0B7917BCC7510045A253 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		42BF0B8017BCC78F0045A253 /* OTCubeRotateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTCubeRotateView.h; sourceTree = "<group>"; };
-		42BF0B8117BCC78F0045A253 /* OTCubeRotateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTCubeRotateView.m; sourceTree = "<group>"; };
+		42BF0B8017BCC78F0045A253 /* ComOpenthreadOTCubeRotateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComOpenthreadOTCubeRotateView.h; sourceTree = "<group>"; };
+		42BF0B8117BCC78F0045A253 /* ComOpenthreadOTCubeRotateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComOpenthreadOTCubeRotateView.m; sourceTree = "<group>"; };
 		42BF0B8417BCC78F0045A253 /* ComOpenThreadOTScreenshotHelperSwizzleHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComOpenThreadOTScreenshotHelperSwizzleHelper.h; sourceTree = "<group>"; };
 		42BF0B8517BCC78F0045A253 /* ComOpenThreadOTScreenshotHelperSwizzleHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComOpenThreadOTScreenshotHelperSwizzleHelper.m; sourceTree = "<group>"; };
 		42BF0B8617BCC78F0045A253 /* UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.h"; sourceTree = "<group>"; };
 		42BF0B8717BCC78F0045A253 /* UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.m"; sourceTree = "<group>"; };
-		42BF0B8917BCC78F0045A253 /* OTScreenshotHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTScreenshotHelper.h; sourceTree = "<group>"; };
-		42BF0B8A17BCC78F0045A253 /* OTScreenshotHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTScreenshotHelper.m; sourceTree = "<group>"; };
+		42BF0B8917BCC78F0045A253 /* ComOpenthreadOTScreenshotHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComOpenthreadOTScreenshotHelper.h; sourceTree = "<group>"; };
+		42BF0B8A17BCC78F0045A253 /* ComOpenthreadOTScreenshotHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComOpenthreadOTScreenshotHelper.m; sourceTree = "<group>"; };
 		42BF0B8C17BCC78F0045A253 /* ComOpenthreadOTNotificationBasicNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComOpenthreadOTNotificationBasicNotificationView.h; sourceTree = "<group>"; };
 		42BF0B8D17BCC78F0045A253 /* ComOpenthreadOTNotificationBasicNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComOpenthreadOTNotificationBasicNotificationView.m; sourceTree = "<group>"; };
 		42BF0B8E17BCC78F0045A253 /* ComOpenthreadOTNotificationMessageNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComOpenthreadOTNotificationMessageNotificationView.h; sourceTree = "<group>"; };
@@ -193,8 +193,8 @@
 		42BF0B7F17BCC78F0045A253 /* OTCubeRotateView */ = {
 			isa = PBXGroup;
 			children = (
-				42BF0B8017BCC78F0045A253 /* OTCubeRotateView.h */,
-				42BF0B8117BCC78F0045A253 /* OTCubeRotateView.m */,
+				42BF0B8017BCC78F0045A253 /* ComOpenthreadOTCubeRotateView.h */,
+				42BF0B8117BCC78F0045A253 /* ComOpenthreadOTCubeRotateView.m */,
 			);
 			path = OTCubeRotateView;
 			sourceTree = "<group>";
@@ -222,8 +222,8 @@
 		42BF0B8817BCC78F0045A253 /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				42BF0B8917BCC78F0045A253 /* OTScreenshotHelper.h */,
-				42BF0B8A17BCC78F0045A253 /* OTScreenshotHelper.m */,
+				42BF0B8917BCC78F0045A253 /* ComOpenthreadOTScreenshotHelper.h */,
+				42BF0B8A17BCC78F0045A253 /* ComOpenthreadOTScreenshotHelper.m */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -353,10 +353,10 @@
 				42BF0B5D17BCC6C40045A253 /* main.m in Sources */,
 				42BF0B6117BCC6C40045A253 /* AppDelegate.m in Sources */,
 				42BF0B6A17BCC6C40045A253 /* ViewController.m in Sources */,
-				42BF0BA417BCC7900045A253 /* OTCubeRotateView.m in Sources */,
+				42BF0BA417BCC7900045A253 /* ComOpenthreadOTCubeRotateView.m in Sources */,
 				42BF0BA517BCC7900045A253 /* ComOpenThreadOTScreenshotHelperSwizzleHelper.m in Sources */,
 				42BF0BA617BCC7900045A253 /* UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.m in Sources */,
-				42BF0BA717BCC7900045A253 /* OTScreenshotHelper.m in Sources */,
+				42BF0BA717BCC7900045A253 /* ComOpenthreadOTScreenshotHelper.m in Sources */,
 				42BF0BA817BCC7900045A253 /* ComOpenthreadOTNotificationBasicNotificationView.m in Sources */,
 				42BF0BA917BCC7900045A253 /* ComOpenthreadOTNotificationMessageNotificationView.m in Sources */,
 				42BF0BAA17BCC7900045A253 /* ComOpenthreadOTNotificationContentView.m in Sources */,

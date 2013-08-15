@@ -6,11 +6,11 @@
 //
 //
 
-#import "OTScreenshotHelper.h"
+#import "ComOpenthreadOTScreenshotHelper.h"
 #import "UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation OTScreenshotHelper
+@implementation ComOpenthreadOTScreenshotHelper
 
 + (UIImage *)screenshotOfView:(UIView *)view
 {

@@ -16,7 +16,7 @@ typedef enum {
     OTCubeViewRotateSideFromDownSide
 } OTCubeViewRotateSide;
 
-@interface OTCubeRotateView : UIView
+@interface ComOpenthreadOTCubeRotateView : UIView
 
 //Set the current view with out animation.
 //Also, you can get the current view ref.

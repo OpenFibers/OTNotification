@@ -7,8 +7,8 @@
 //
 
 #import "ComOpenthreadOTNotificationMessageWindow.h"
-#import "OTCubeRotateView.h"
-#import "OTScreenshotHelper.h"
+#import "ComOpenthreadOTCubeRotateView.h"
+#import "ComOpenthreadOTScreenshotHelper.h"
 #import "ComOpenthreadOTNotificationContentView.h"
 #import "ComOpenthreadOTNotificationMessageNotificationView.h"
 
@@ -26,7 +26,7 @@ typedef enum {
 
 @implementation ComOpenthreadOTNotificationMessageWindow
 {
-    OTCubeRotateView *_cubeRotateView;
+    ComOpenthreadOTCubeRotateView *_cubeRotateView;
     UIImageView *_cubeShadowView;
     NSMutableArray *_notificationViews;
 }
@@ -49,7 +49,7 @@ typedef enum {
             [self.contentView addSubview:_cubeShadowView];
         }
         
-        _cubeRotateView = [[OTCubeRotateView alloc] initWithFrame:self.contentView.bounds];
+        _cubeRotateView = [[ComOpenthreadOTCubeRotateView alloc] initWithFrame:self.contentView.bounds];
         _cubeRotateView.clipsToBounds = YES;
         _cubeRotateView.backgroundColor = [UIColor blackColor];
         [self.contentView addSubview:_cubeRotateView];
@@ -300,7 +300,7 @@ typedef enum {
 - (UIImage *)getScreenshotForCubeRect
 {
     CGRect screenshotRect = [_cubeRotateView.superview convertRect:_cubeRotateView.frame toView:self];
-    UIImage *screenshot = [OTScreenshotHelper screenshotWithStatusBar:YES rect:screenshotRect];
+    UIImage *screenshot = [ComOpenthreadOTScreenshotHelper screenshotWithStatusBar:YES rect:screenshotRect];
     return screenshot;
 }
 

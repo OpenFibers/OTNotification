@@ -6,10 +6,10 @@
 //
 //
 
-#import "OTCubeRotateView.h"
+#import "ComOpenthreadOTCubeRotateView.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation OTCubeRotateView
+@implementation ComOpenthreadOTCubeRotateView
 {
     CATransformLayer *_transformLayer;
     CALayer *_dimmLayer;
