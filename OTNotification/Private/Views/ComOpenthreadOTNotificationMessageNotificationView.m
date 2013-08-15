@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 openthread. All rights reserved.
 //
 
-#import "OTMessageNotificationView.h"
+#import "ComOpenthreadOTNotificationMessageNotificationView.h"
 #import "OTNotificationMessage.h"
 
-@implementation OTMessageNotificationView
+@implementation ComOpenthreadOTNotificationMessageNotificationView
 {
     UIImageView *_iconFrameView;
     UIImageView *_iconView;

@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 openthread. All rights reserved.
 //
 
-#import "OTBasicNotificationView.h"
+#import "ComOpenthreadOTNotificationBasicNotificationView.h"
 @class OTNotificationMessage;
 
-@interface OTMessageNotificationView : OTBasicNotificationView
+@interface ComOpenthreadOTNotificationMessageNotificationView : ComOpenthreadOTNotificationBasicNotificationView
 
 //Title string.
 @property (nonatomic, retain) NSString *title;

@@ -6,11 +6,11 @@
 //
 //
 
-#import "OTNotificationWindow.h"
+#import "ComOpenthreadOTNotificationMessageWindow.h"
 #import "OTCubeRotateView.h"
 #import "OTScreenshotHelper.h"
-#import "OTNotificationContentView.h"
-#import "OTMessageNotificationView.h"
+#import "ComOpenthreadOTNotificationContentView.h"
+#import "ComOpenthreadOTNotificationMessageNotificationView.h"
 
 typedef enum {
     OTNotificationWindowStateHidden,//Hidding
@@ -20,11 +20,11 @@ typedef enum {
     OTNotificationWindowStateCubeRotatingOut//Rotating out
 } OTNotificationWindowState;
 
-@interface OTNotificationWindow() <ComOpenthreadOTNotificationRotateWindowDelegate>
+@interface ComOpenthreadOTNotificationMessageWindow() <ComOpenthreadOTNotificationRotateWindowDelegate>
 @property (nonatomic, assign) OTNotificationWindowState state;
 @end
 
-@implementation OTNotificationWindow
+@implementation ComOpenthreadOTNotificationMessageWindow
 {
     OTCubeRotateView *_cubeRotateView;
     UIImageView *_cubeShadowView;
@@ -206,15 +206,15 @@ typedef enum {
     }
     else if ([obj isKindOfClass:[OTNotificationMessage class]])
     {
-        view = [[OTMessageNotificationView alloc] init];
-        ((OTMessageNotificationView *)view).notificationMessage = obj;
+        view = [[ComOpenthreadOTNotificationMessageNotificationView alloc] init];
+        ((ComOpenthreadOTNotificationMessageNotificationView *)view).notificationMessage = obj;
     }
     else
     {
         [self handleNotifications];
     }
     
-    OTNotificationContentView *contentView = [[OTNotificationContentView alloc] initWithFrame:_cubeRotateView.bounds];
+    ComOpenthreadOTNotificationContentView *contentView = [[ComOpenthreadOTNotificationContentView alloc] initWithFrame:_cubeRotateView.bounds];
     contentView.notificationView = view;
     
     //set cube rotate view's background color to black
@@ -230,10 +230,10 @@ typedef enum {
         
         //set rotating out content view's background image to screenshot
         UIView *currentView = _cubeRotateView.currentView;
-        if ([currentView isKindOfClass:[OTNotificationContentView class]])
+        if ([currentView isKindOfClass:[ComOpenthreadOTNotificationContentView class]])
         {
-            ((OTNotificationContentView *)currentView).backgroundImage = screenshot;
-            ((OTNotificationContentView *)currentView).backgroundImageHidden = NO;
+            ((ComOpenthreadOTNotificationContentView *)currentView).backgroundImage = screenshot;
+            ((ComOpenthreadOTNotificationContentView *)currentView).backgroundImageHidden = NO;
         }
     }
     
@@ -270,10 +270,10 @@ typedef enum {
     {
         //set rotating out content view's background image to screenshot
         UIView *currentView = _cubeRotateView.currentView;
-        if ([currentView isKindOfClass:[OTNotificationContentView class]])
+        if ([currentView isKindOfClass:[ComOpenthreadOTNotificationContentView class]])
         {
-            ((OTNotificationContentView *)currentView).backgroundImage = screenshot;
-            ((OTNotificationContentView *)currentView).backgroundImageHidden = NO;
+            ((ComOpenthreadOTNotificationContentView *)currentView).backgroundImage = screenshot;
+            ((ComOpenthreadOTNotificationContentView *)currentView).backgroundImageHidden = NO;
         }
         
         //Hide cube's shadow
@@ -353,12 +353,12 @@ typedef enum {
 
 #pragma mark - Singleton Method
 
-+ (OTNotificationWindow *)sharedInstance
++ (ComOpenthreadOTNotificationMessageWindow *)sharedInstance
 {
-    static OTNotificationWindow *instance = nil;
+    static ComOpenthreadOTNotificationMessageWindow *instance = nil;
     if (!instance)
     {
-        instance = [[OTNotificationWindow alloc] initWithFrame:CGRectZero];
+        instance = [[ComOpenthreadOTNotificationMessageWindow alloc] initWithFrame:CGRectZero];
     }
     return instance;
 }

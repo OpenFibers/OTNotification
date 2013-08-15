@@ -13,7 +13,7 @@
 #import "OTNotificationViewProtocol.h"
 #import "OTNotificationMessage.h"
 
-@interface OTNotificationWindow : ComOpenthreadOTNotificationRotateWindow
+@interface ComOpenthreadOTNotificationMessageWindow : ComOpenthreadOTNotificationRotateWindow
 
 //default is YES. don't set value to `hidden` property, nothing will happen
 @property(nonatomic,getter=isHidden) BOOL hidden;
@@ -42,6 +42,6 @@
 //Remove unappeared notification view. will take no effect on showing view and showed view.
 - (void)removeNotificationView:(UIView *)view;
 
-+ (OTNotificationWindow *)sharedInstance;
++ (ComOpenthreadOTNotificationMessageWindow *)sharedInstance;
 
 @end

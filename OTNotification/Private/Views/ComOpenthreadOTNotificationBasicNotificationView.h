@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "OTNotificationViewProtocol.h"
 
-@interface OTBasicNotificationView : UIView <OTNotificationViewProtocol>
+@interface ComOpenthreadOTNotificationBasicNotificationView : UIView <OTNotificationViewProtocol>
 
 @end

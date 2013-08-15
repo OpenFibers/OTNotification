@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OTNotificationContentView : UIView
+@interface ComOpenthreadOTNotificationContentView : UIView
 
 @property (nonatomic, assign) BOOL backgroundImageHidden;
 

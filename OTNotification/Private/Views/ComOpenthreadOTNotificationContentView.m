@@ -6,9 +6,9 @@
 //
 //
 
-#import "OTNotificationContentView.h"
+#import "ComOpenthreadOTNotificationContentView.h"
 
-@implementation OTNotificationContentView
+@implementation ComOpenthreadOTNotificationContentView
 {
     UIImageView *_backgroundImageView;
 }
