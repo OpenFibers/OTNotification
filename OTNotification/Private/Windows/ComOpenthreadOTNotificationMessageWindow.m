@@ -326,11 +326,15 @@ typedef enum {
     if ([notificationView conformsToProtocol:@protocol(OTNotificationViewProtocol)])
     {
         UIView<OTNotificationViewProtocol> *touchedView = (UIView<OTNotificationViewProtocol> *)notificationView;
-        if (touchedView.otNotificationTouchBlock)
+        if ([touchedView respondsToSelector:@selector(otNotificationTouchBlock)] &&
+            touchedView.otNotificationTouchBlock)
         {
             touchedView.otNotificationTouchBlock();
         }
-        if (touchedView.otNotificationTouchTarget && touchedView.otNotificationTouchSelector)
+        if ([touchedView respondsToSelector:@selector(otNotificationTouchTarget)] &&
+            [touchedView respondsToSelector:@selector(otNotificationTouchSelector)] &&
+            touchedView.otNotificationTouchTarget &&
+            touchedView.otNotificationTouchSelector)
         {
             //If touch selector setted but not implemented, raise exception.
             objc_msgSend(touchedView.otNotificationTouchTarget,

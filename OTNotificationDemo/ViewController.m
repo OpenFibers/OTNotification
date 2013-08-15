@@ -34,9 +34,9 @@
     OTNotificationMessage *notificationMessage = [[OTNotificationMessage alloc] init];
     notificationMessage.title = @"Notification";
     notificationMessage.message = @"Very very very very very very very very very very very very very long notification";
-//    [notificationMessage setTouchBlock:^{
-//        NSLog(@"touched");
-//    }];
+    [notificationMessage setOtNotificationTouchBlock:^{
+        NSLog(@"touched");
+    }];
     notificationMessage.otNotificationTouchTarget = self;
     notificationMessage.otNotificationTouchSelector = @selector(touched);
     [notificationManager postNotificationMessage:notificationMessage];
