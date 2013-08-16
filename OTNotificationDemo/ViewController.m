@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "OTNotification.h"
+#import "SubclassBasicNotificationView.h"
 #import <objc/message.h>
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
@@ -103,6 +104,13 @@
     [notificationManager postNotificationView:view];
 }
 
+- (void)subclassOTBasicNotificationView
+{
+    SubclassBasicNotificationView *view = [[SubclassBasicNotificationView alloc] initWithFrame:CGRectZero];
+    OTNotificationManager *notificationManager = [OTNotificationManager defaultManager];
+    [notificationManager postNotificationView:view];
+}
+
 #pragma mark - Gen Notification Title
 
 - (NSString *)notificationTitle
@@ -133,7 +141,8 @@
                       @"Notification With Target & SEL",
                       @"Notification Without Icon",
                       @"Notification With Custom Icon",
-                      @"Basic View Notification"
+                      @"Basic View Notification",
+                      @"Subclass of OTBasicNotificationView"
                       ];
     _selectorArray = @[NSStringFromSelector(@selector(simpleNotification)),
                        NSStringFromSelector(@selector(notificationCannotTouch)),
@@ -141,7 +150,8 @@
                        NSStringFromSelector(@selector(notificationWithTouchTargetAndSEL)),
                        NSStringFromSelector(@selector(notificationWithoutIcon)),
                        NSStringFromSelector(@selector(notificationWithCustomIcon)),
-                       NSStringFromSelector(@selector(basicViewNotification))
+                       NSStringFromSelector(@selector(basicViewNotification)),
+                       NSStringFromSelector(@selector(subclassOTBasicNotificationView))
                        ];
     
     [self addObserver:self forKeyPath:@"view.frame" options:NSKeyValueObservingOptionNew context:nil];
