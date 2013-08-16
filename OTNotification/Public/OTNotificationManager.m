@@ -62,6 +62,12 @@
     [_window removeNotificationView:view];
 }
 
+//Remove all notification messages and notification views.
+- (void)removeAllNotifications
+{
+    [_window removeAllNotifications];
+}
+
 #pragma mark - Check if notification window is hidden.
 
 //Check if notification window is hidden. Default is YES.

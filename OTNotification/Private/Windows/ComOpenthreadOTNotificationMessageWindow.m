@@ -128,6 +128,11 @@ typedef enum {
     }
 }
 
+- (void)removeAllNotifications
+{
+    [_notificationQueue removeAllObjects];
+}
+
 - (void)postNotificationView:(UIView *)view
 {
     if ([_notificationQueue containsObject:view])

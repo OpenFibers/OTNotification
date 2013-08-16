@@ -41,6 +41,9 @@
 //Remove unappeared notification view. will take no effect on showing view and showed view.
 - (void)removeNotificationView:(UIView *)view;
 
+//Remove all notification messages and notification views.
+- (void)removeAllNotifications;
+
 + (ComOpenthreadOTNotificationMessageWindow *)sharedInstance;
 
 @end
