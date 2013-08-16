@@ -30,6 +30,7 @@
         [self addSubview:_customLabel];
         
         self.backgroundColor = [UIColor blackColor];
+        self.otNotificationShouldHideOnTouch = YES;
         
         self.otNotificationTouchBlock = ^{
             NSLog(@"CustomNotificationView touched");
