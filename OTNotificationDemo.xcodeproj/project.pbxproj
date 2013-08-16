@@ -12,6 +12,7 @@
 		42BA94F217BDD09F004A827F /* CustomNotificationIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 42BA94F017BDD09F004A827F /* CustomNotificationIcon.png */; };
 		42BA94F317BDD09F004A827F /* CustomNotificationIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42BA94F117BDD09F004A827F /* CustomNotificationIcon@2x.png */; };
 		42BA94F617BDD2C0004A827F /* SubclassBasicNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BA94F517BDD2C0004A827F /* SubclassBasicNotificationView.m */; };
+		42BA94F917BDF603004A827F /* CustomNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BA94F817BDF603004A827F /* CustomNotificationView.m */; };
 		42BF0B5117BCC6C40045A253 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BF0B5017BCC6C40045A253 /* UIKit.framework */; };
 		42BF0B5317BCC6C40045A253 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BF0B5217BCC6C40045A253 /* Foundation.framework */; };
 		42BF0B5517BCC6C40045A253 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BF0B5417BCC6C40045A253 /* CoreGraphics.framework */; };
@@ -54,6 +55,8 @@
 		42BA94F117BDD09F004A827F /* CustomNotificationIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CustomNotificationIcon@2x.png"; sourceTree = "<group>"; };
 		42BA94F417BDD2C0004A827F /* SubclassBasicNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubclassBasicNotificationView.h; sourceTree = "<group>"; };
 		42BA94F517BDD2C0004A827F /* SubclassBasicNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubclassBasicNotificationView.m; sourceTree = "<group>"; };
+		42BA94F717BDF603004A827F /* CustomNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNotificationView.h; sourceTree = "<group>"; };
+		42BA94F817BDF603004A827F /* CustomNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNotificationView.m; sourceTree = "<group>"; };
 		42BF0B4D17BCC6C40045A253 /* OTNotificationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OTNotificationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42BF0B5017BCC6C40045A253 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		42BF0B5217BCC6C40045A253 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -156,6 +159,8 @@
 				42BF0B6917BCC6C40045A253 /* ViewController.m */,
 				42BA94F417BDD2C0004A827F /* SubclassBasicNotificationView.h */,
 				42BA94F517BDD2C0004A827F /* SubclassBasicNotificationView.m */,
+				42BA94F717BDF603004A827F /* CustomNotificationView.h */,
+				42BA94F817BDF603004A827F /* CustomNotificationView.m */,
 				42BA94F017BDD09F004A827F /* CustomNotificationIcon.png */,
 				42BA94F117BDD09F004A827F /* CustomNotificationIcon@2x.png */,
 				42BF0B5717BCC6C40045A253 /* Supporting Files */,
@@ -392,6 +397,7 @@
 				42A2E0F217BCEB4D007264FD /* OTNotificationManager.m in Sources */,
 				42A2E0F617BCF431007264FD /* OTBasicNotificationView.m in Sources */,
 				42BA94F617BDD2C0004A827F /* SubclassBasicNotificationView.m in Sources */,
+				42BA94F917BDF603004A827F /* CustomNotificationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
