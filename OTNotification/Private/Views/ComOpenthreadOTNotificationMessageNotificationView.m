@@ -106,6 +106,7 @@
     self.otNotificationTouchBlock = notificationMessage.otNotificationTouchBlock;
     self.otNotificationTouchTarget = notificationMessage.otNotificationTouchTarget;
     self.otNotificationTouchSelector = notificationMessage.otNotificationTouchSelector;
+    self.otNotificationShouldHideOnTouch = notificationMessage.otNotificationShouldHideOnTouch;
 }
 
 @end

@@ -16,6 +16,7 @@
     if (self)
     {
         self.showIcon = YES;
+        self.otNotificationShouldHideOnTouch = YES;
     }
     return self;
 }
