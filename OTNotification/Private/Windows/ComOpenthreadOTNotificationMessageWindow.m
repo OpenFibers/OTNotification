@@ -161,6 +161,8 @@ typedef enum {
 
 - (void)handleNotifications
 {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(handleNotifications) object:nil];
+    
     //If no notification comes in, cube out.
     if (_notificationStack.count <= 0)
     {
