@@ -6,6 +6,7 @@
 *  Use NO private API. Only QuartzCore and runtime used.  
 *  Supports all screen orientations.
 *  Supports iPhone and iPad.
+*  Supports iOS4/5/6/7. Tested in SDK6.1, runtime 5.0 - 7.0 dp5
 
 ##Screenshots
 
