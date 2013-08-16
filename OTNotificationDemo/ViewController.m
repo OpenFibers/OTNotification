@@ -91,6 +91,18 @@
     [notificationManager postNotificationMessage:notificationMessage];
 }
 
+- (void)basicViewNotification
+{
+    OTNotificationManager *notificationManager = [OTNotificationManager defaultManager];
+    OTBasicNotificationView *view = [[OTBasicNotificationView alloc] init];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 20)];
+    label.text = @"Brazil color basic view notification.";
+    label.backgroundColor = [UIColor yellowColor];
+    label.textColor = [UIColor greenColor];
+    [view addSubview:label];
+    [notificationManager postNotificationView:view];
+}
+
 #pragma mark - Gen Notification Title
 
 - (NSString *)notificationTitle
@@ -110,7 +122,7 @@
     
     self.title = @"OTNotification Demo";
     
-    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     _tableView.dataSource = self;
     _tableView.delegate = self;
     [self.view addSubview:_tableView];
@@ -120,14 +132,16 @@
                       @"Notification With Touch Block",
                       @"Notification With Target & SEL",
                       @"Notification Without Icon",
-                      @"Notification With Custom Icon"
+                      @"Notification With Custom Icon",
+                      @"Basic View Notification"
                       ];
     _selectorArray = @[NSStringFromSelector(@selector(simpleNotification)),
                        NSStringFromSelector(@selector(notificationCannotTouch)),
                        NSStringFromSelector(@selector(notificationWithTouchBlock)),
                        NSStringFromSelector(@selector(notificationWithTouchTargetAndSEL)),
                        NSStringFromSelector(@selector(notificationWithoutIcon)),
-                       NSStringFromSelector(@selector(notificationWithCustomIcon))
+                       NSStringFromSelector(@selector(notificationWithCustomIcon)),
+                       NSStringFromSelector(@selector(basicViewNotification))
                        ];
     
     [self addObserver:self forKeyPath:@"view.frame" options:NSKeyValueObservingOptionNew context:nil];
