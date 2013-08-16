@@ -83,4 +83,14 @@
     }
 }
 
+//Handle will rotate in event if needed.
+- (void)viewWillRotateIn
+{
+}
+
+//Handle did rotate out event if needed.
+- (void)viewDidRotateOut
+{
+}
+
 @end

@@ -234,12 +234,37 @@ typedef enum {
         }
     }
     
+    if ([view respondsToSelector:@selector(viewWillRotateIn)])
+    {
+        objc_msgSend(view, @selector(viewWillRotateIn));
+    }
+    
+    UIView *currentView = _cubeRotateView.currentView;
+    UIView *oldNotifView = nil;
+    if ([currentView isKindOfClass:[ComOpenthreadOTNotificationContentView class]])
+    {
+        oldNotifView = ((ComOpenthreadOTNotificationContentView *)currentView).notificationView;
+    }
+    if ([oldNotifView respondsToSelector:@selector(viewWillRotateOut)])
+    {
+        objc_msgSend(oldNotifView, @selector(viewWillRotateOut));
+    }
+    
     //Show notification view.
     [_cubeRotateView rotateToView:contentView
                              from:OTCubeViewRotateSideFromUpSide
                 animationDuration:0.5 completion:^{
                     //set cube rotate view's background color to clear
                     _cubeRotateView.backgroundColor = [UIColor clearColor];
+                    
+                    if ([view respondsToSelector:@selector(viewDidRotateIn)])
+                    {
+                        objc_msgSend(view, @selector(viewDidRotateIn));
+                    }
+                    if ([oldNotifView respondsToSelector:@selector(viewDidRotateOut)])
+                    {
+                        objc_msgSend(oldNotifView, @selector(viewDidRotateOut));
+                    }
                     
                     //If on ipad, set content background image to hidden
                     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
@@ -279,6 +304,18 @@ typedef enum {
         }
     }
     
+    //Callback view rotate out event
+    UIView *currentView = _cubeRotateView.currentView;
+    UIView *oldNotifView = nil;
+    if ([currentView isKindOfClass:[ComOpenthreadOTNotificationContentView class]])
+    {
+        oldNotifView = ((ComOpenthreadOTNotificationContentView *)currentView).notificationView;
+    }
+    if ([oldNotifView respondsToSelector:@selector(viewWillRotateOut)])
+    {
+        objc_msgSend(oldNotifView, @selector(viewWillRotateOut));
+    }
+    
     //Hide cube's shadow
     _cubeShadowView.alpha = 1;
     [UIView animateWithDuration:0.15f
@@ -288,6 +325,10 @@ typedef enum {
                          _cubeShadowView.alpha = 0;
                      } completion:^(BOOL finished) {
                          _cubeShadowView.hidden = YES;
+                         if ([oldNotifView respondsToSelector:@selector(viewDidRotateOut)])
+                         {
+                             objc_msgSend(oldNotifView, @selector(viewDidRotateOut));
+                         }
                      }];
     
     [_cubeRotateView rotateToView:[[UIImageView alloc] initWithImage:screenshot]
