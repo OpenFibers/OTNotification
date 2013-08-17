@@ -76,6 +76,31 @@
     return _window.hidden;
 }
 
+#pragma mark - Display duration
+
+//The display duration per each notification message. Default is 2 seconds.
+- (NSTimeInterval)notificationDisplayDuration
+{
+    return _window.notificationDisplayDuration;
+}
+
+- (void)setNotificationDisplayDuration:(NSTimeInterval)notificationDisplayDuration
+{
+    _window.notificationDisplayDuration = notificationDisplayDuration;
+}
+
+//The interval before dismiss notification window after notification messages display ends.
+//Default is 3 seconds.
+- (NSTimeInterval)dismissInterval
+{
+    return _window.dismissInterval;
+}
+
+- (void)setDismissInterval:(NSTimeInterval)dismissInterval
+{
+    _window.dismissInterval = dismissInterval;
+}
+
 #pragma mark - Rotating Methods
 
 //Auto rotate, default is `YES`.

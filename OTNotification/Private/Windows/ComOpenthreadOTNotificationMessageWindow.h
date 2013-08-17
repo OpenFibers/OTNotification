@@ -44,6 +44,13 @@
 //Remove all notification messages and notification views.
 - (void)removeAllNotifications;
 
+//The display duration per each notification message. Default is 2 seconds.
+@property (nonatomic, assign) NSTimeInterval notificationDisplayDuration;
+
+//The interval before dismiss notification window after notification messages display ends.
+//Default is 3 seconds.
+@property (nonatomic, assign) NSTimeInterval dismissInterval;
+
 + (ComOpenthreadOTNotificationMessageWindow *)sharedInstance;
 
 @end

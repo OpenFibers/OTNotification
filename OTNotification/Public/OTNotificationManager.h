@@ -37,6 +37,15 @@
 //Check if notification window is hidden. Default is YES.
 @property(nonatomic, readonly) BOOL isNotificationWindowHidden;
 
+#pragma mark - Display duration
+
+//The display duration per each notification message. Default is 2 seconds.
+@property (nonatomic, assign) NSTimeInterval notificationDisplayDuration;
+
+//The interval before dismiss notification window after notification messages display ends.
+//Default is 3 seconds.
+@property (nonatomic, assign) NSTimeInterval dismissInterval;
+
 #pragma mark - Rotating Methods
 
 //You needn't call rotate methods or access rotate property in most situations.

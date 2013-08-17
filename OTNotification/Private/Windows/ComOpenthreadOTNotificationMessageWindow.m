@@ -40,6 +40,9 @@ typedef enum {
     self = [super initWithFrame:frame];
     if (self)
     {
+        self.notificationDisplayDuration = 2.0f;
+        self.dismissInterval = 3.0f;
+        
         self.contentViewFrameDelegate = self;
         
         _cubeRotateView = [[ComOpenthreadOTCubeRotateView alloc] initWithFrame:self.contentView.bounds];
@@ -172,7 +175,7 @@ typedef enum {
     if (_notificationQueue.count <= 0)
     {
         self.state = OTNotificationWindowStateWaitingCubeRotatingOut;
-        [self performSelector:@selector(cubeOut) withObject:nil afterDelay:3];
+        [self performSelector:@selector(cubeOut) withObject:nil afterDelay:self.dismissInterval];
         return;
     }
         
@@ -277,7 +280,9 @@ typedef enum {
                         contentView.backgroundImageHidden = YES;
                         contentView.backgroundImage = nil;
                     }
-                    [self performSelector:@selector(handleNotifications) withObject:nil afterDelay:2];
+                    [self performSelector:@selector(handleNotifications)
+                               withObject:nil
+                               afterDelay:self.notificationDisplayDuration];
                     
                     self.state = OTNotificationWindowStateShowing;
                 }];
