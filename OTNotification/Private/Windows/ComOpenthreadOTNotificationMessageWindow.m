@@ -11,6 +11,7 @@
 #import "ComOpenthreadOTScreenshotHelper.h"
 #import "ComOpenthreadOTNotificationContentView.h"
 #import "ComOpenthreadOTNotificationMessageNotificationView.h"
+#import "ComOpenthreadOTNotificationUpdatingScreenshotView.h"
 #import <objc/message.h>
 
 typedef enum {
@@ -21,8 +22,14 @@ typedef enum {
     OTNotificationWindowStateCubeRotatingOut//Rotating out
 } OTNotificationWindowState;
 
-@interface ComOpenthreadOTNotificationMessageWindow() <ComOpenthreadOTNotificationRotateWindowDelegate>
+@interface ComOpenthreadOTNotificationMessageWindow()
+<
+    ComOpenthreadOTNotificationRotateWindowDelegate,
+    ComOpenthreadOTNotificationUpdatingScreenshotViewDelegate
+>
+
 @property (nonatomic, assign) OTNotificationWindowState state;
+
 @end
 
 @implementation ComOpenthreadOTNotificationMessageWindow
@@ -30,6 +37,7 @@ typedef enum {
     ComOpenthreadOTCubeRotateView *_cubeRotateView;
     UIButton *_cubeTouchButton;
     UIImageView *_cubeShadowView;
+    ComOpenthreadOTNotificationUpdatingScreenshotView *_screenshotView;
     NSMutableArray *_notificationQueue;
 }
 
@@ -341,13 +349,29 @@ typedef enum {
                          }
                      }];
     
-    [_cubeRotateView rotateToView:[[UIImageView alloc] initWithImage:screenshot]
+    if (!_screenshotView)
+    {
+        CGRect cubeRect = [self cubeRect];
+        cubeRect.origin = CGPointZero;
+        _screenshotView = [[ComOpenthreadOTNotificationUpdatingScreenshotView alloc] initWithFrame:cubeRect];
+        _screenshotView.delegate = self;
+    }
+    
+    [_cubeRotateView rotateToView:_screenshotView
                              from:OTCubeViewRotateSideFromUpSide
                 animationDuration:0.5 completion:^{
                     [self setHiddenPrivate:YES];
+                    _screenshotView.shouldUpdateScreenshot = NO;
+                    _screenshotView = nil;
+                    _cubeRotateView.currentView = nil;
                     self.state = OTNotificationWindowStateHidden;
                 }];
     return;
+}
+
+- (UIImage *)screenshotImageToUpdate:(ComOpenthreadOTNotificationUpdatingScreenshotView *)view
+{
+    return [self getScreenshotForCubeRect];
 }
 
 - (void)cubeTouched
