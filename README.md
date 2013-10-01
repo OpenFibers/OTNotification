@@ -69,4 +69,4 @@ THE SOFTWARE.
 
 #TODO
 * Supports for none-displaying status bar apps.
-* Supports for updating screenshots when last notification rotating out.
+* Supports ipad notification in iOS7.
