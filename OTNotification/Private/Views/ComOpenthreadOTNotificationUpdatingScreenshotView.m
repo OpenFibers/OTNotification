@@ -35,7 +35,7 @@
 
 - (void)updateAsync
 {
-    if (!self.isUpdating)
+    if (!self.isUpdating && self.shouldUpdateScreenshot)
     {
         self.isUpdating = YES;
         UIImage *snapshot = [self.delegate imageToUpdate];
@@ -63,6 +63,11 @@
                             waitUntilDone:NO
                                     modes:@[NSDefaultRunLoopMode, UITrackingRunLoopMode]];
     }
+}
+
+- (void)dealloc
+{
+    self.shouldUpdateScreenshot = NO;
 }
 
 @end
