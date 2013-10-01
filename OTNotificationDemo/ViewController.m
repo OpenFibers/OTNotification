@@ -119,6 +119,13 @@
     [notificationManager postNotificationView:view];
 }
 
+- (void)toggleStatusBarHidden
+{
+    UIApplication *application = [UIApplication sharedApplication];
+    [application setStatusBarHidden:!application.statusBarHidden
+                      withAnimation:UIStatusBarAnimationSlide];
+}
+
 #pragma mark - Gen Notification Title
 
 - (NSString *)notificationTitle
@@ -151,7 +158,8 @@
                       @"Notification With Custom Icon",
                       @"Basic View Notification",
                       @"Subclass of OTBasicNotificationView",
-                      @"Custom notification view"
+                      @"Custom notification view",
+                      @"Toggle status bar hidden"
                       ];
     _selectorArray = @[NSStringFromSelector(@selector(simpleNotification)),
                        NSStringFromSelector(@selector(notificationCannotTouch)),
@@ -161,7 +169,8 @@
                        NSStringFromSelector(@selector(notificationWithCustomIcon)),
                        NSStringFromSelector(@selector(basicViewNotification)),
                        NSStringFromSelector(@selector(subclassOTBasicNotificationView)),
-                       NSStringFromSelector(@selector(customNotificationView))
+                       NSStringFromSelector(@selector(customNotificationView)),
+                       NSStringFromSelector(@selector(toggleStatusBarHidden))
                        ];
     
     [self addObserver:self forKeyPath:@"view.frame" options:NSKeyValueObservingOptionNew context:nil];
