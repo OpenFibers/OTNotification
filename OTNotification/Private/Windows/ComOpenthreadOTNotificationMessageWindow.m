@@ -179,7 +179,7 @@ typedef enum {
         return;
     }
         
-    //If self is hidden, cube in screenshot and set hidden to NO
+    //If self is hidden, cube out screenshot and set hidden to NO
     UIImage *screenshot = nil;
     if (self.state == OTNotificationWindowStateHidden)
     {
