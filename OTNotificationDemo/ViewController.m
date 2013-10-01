@@ -124,6 +124,27 @@
     UIApplication *application = [UIApplication sharedApplication];
     [application setStatusBarHidden:!application.statusBarHidden
                       withAnimation:UIStatusBarAnimationSlide];
+    
+    void (^animations)(void) = ^{
+        [self refreshFrameForStatusBarChange];
+    };
+    
+    [UIView animateWithDuration:0.35
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:animations
+                     completion:nil];
+}
+
+- (void)refreshFrameForStatusBarChange
+{
+    CGRect appFrame = [[UIScreen mainScreen] applicationFrame];
+    
+    self.navigationController.view.frame = appFrame;
+    self.navigationController.navigationBar.frame = self.navigationController.navigationBar.bounds;
+
+    [self.navigationController.view setNeedsLayout];
+    [self.navigationController.view layoutIfNeeded];
 }
 
 #pragma mark - Gen Notification Title
