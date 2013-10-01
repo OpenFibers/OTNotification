@@ -10,6 +10,7 @@
 
 @interface ComOpenthreadOTNotificationUpdatingScreenshotView ()
 @property (nonatomic, assign) BOOL isUpdating;
+@property (nonatomic, assign) NSTimeInterval lastUpdateInterval;
 @end
 
 @implementation ComOpenthreadOTNotificationUpdatingScreenshotView
@@ -39,11 +40,15 @@
     {
         return;
     }
-    if (!self.isUpdating)
+    
+    NSTimeInterval currentInterval = [[NSDate date] timeIntervalSince1970];
+    
+    if (!self.isUpdating && currentInterval - self.lastUpdateInterval > 1/30)
     {
         self.isUpdating = YES;
-        UIImage *snapshot = [self.delegate screenshotImageToUpdate:self];
+        self.lastUpdateInterval = currentInterval;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+            UIImage *snapshot = [self.delegate screenshotImageToUpdate:self];
             dispatch_sync(dispatch_get_main_queue(), ^{
                 
                 //set image
