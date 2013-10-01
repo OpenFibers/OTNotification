@@ -35,10 +35,14 @@
 
 - (void)updateAsync
 {
-    if (!self.isUpdating && self.shouldUpdateScreenshot)
+    if (!self.shouldUpdateScreenshot)
+    {
+        return;
+    }
+    if (!self.isUpdating)
     {
         self.isUpdating = YES;
-        UIImage *snapshot = [self.delegate imageToUpdate];
+        UIImage *snapshot = [self.delegate screenshotImageToUpdate:self];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
             dispatch_sync(dispatch_get_main_queue(), ^{
                 

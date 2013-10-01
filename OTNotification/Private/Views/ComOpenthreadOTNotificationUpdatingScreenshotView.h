@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class ComOpenthreadOTNotificationUpdatingScreenshotView;
+
 @protocol ComOpenthreadOTNotificationUpdatingScreenshotViewDelegate <NSObject>
 
-- (UIImage *)imageToUpdate;
+- (UIImage *)screenshotImageToUpdate:(ComOpenthreadOTNotificationUpdatingScreenshotView *)view;
 
 @end
 
