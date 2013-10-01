@@ -414,9 +414,15 @@ typedef enum {
     }
 }
 
+- (CGRect)cubeRect
+{
+    CGRect cubeRect = [_cubeRotateView.superview convertRect:_cubeRotateView.frame toView:self];
+    return cubeRect;
+}
+
 - (UIImage *)getScreenshotForCubeRect
 {
-    CGRect screenshotRect = [_cubeRotateView.superview convertRect:_cubeRotateView.frame toView:self];
+    CGRect screenshotRect = [self cubeRect];
     UIImage *screenshot = [ComOpenthreadOTScreenshotHelper screenshotWithStatusBar:YES rect:screenshotRect];
     return screenshot;
 }
