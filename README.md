@@ -6,7 +6,7 @@
 *  Use NO private API. Only QuartzCore and runtime used.  
 *  Supports all screen orientations.
 *  Supports iPhone and iPad.
-*  Supports iOS4/5/6/7. Tested in SDK6.1, runtime 5.0 - 7.0 dp5.
+*  Supports iOS4/5/6/7. Tested in SDK6.1 and SDK7.0, runtime 5.0 - 7.0.
 *  Use ARC.
 
 ##Screenshots
@@ -40,6 +40,18 @@
 
 More API usage in `OTNotificationDemo/ViewController.m`
 
+If your app's status bar is hidden, you should manually set message window's orientation in `OTNotificationManager`'s methods:
+
+```
+//Manual rotate
+- (void)setWindowOrientation:(UIInterfaceOrientation)o;
+- (void)setWindowOrientation:(UIInterfaceOrientation)o
+                    animated:(BOOL)animated;
+- (void)setWindowOrientation:(UIInterfaceOrientation)o
+                    animated:(BOOL)animated
+           animationDuration:(NSTimeInterval)animationDuration;
+```
+
 #Modules
 *  Use [OTScreenshotHelper](https://github.com/OpenFibers/OTScreenshotHelper) to make screenshots of views and status bar.
 *  Use [OTCubeRotateView](https://github.com/OpenFibers/OTCubeRotateView) to do cube rotate animation.
@@ -67,6 +79,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-#TODO
-* Supports for none-displaying status bar apps.
-* Supports ipad notification in iOS7.
