@@ -1,6 +1,6 @@
 #OTNotification
 
-##Feature
+##Features
 
 *  Create notifications like push notifications' cube animation in iOS6, covering status bar.  
 *  Use NO private API. Only QuartzCore and runtime used.  
