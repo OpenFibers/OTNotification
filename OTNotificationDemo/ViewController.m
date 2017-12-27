@@ -151,7 +151,7 @@
 
 - (NSString *)notificationTitle
 {
-    return [NSString stringWithFormat:@"Notification%d", _notificationSeq++];
+    return [NSString stringWithFormat:@"Notification%lu", (unsigned long)_notificationSeq++];
 }
 
 #pragma mark - UI
@@ -237,7 +237,7 @@
     return YES;
 }
 
-- (NSUInteger)supportedInterfaceOrientations
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskAll;
 }

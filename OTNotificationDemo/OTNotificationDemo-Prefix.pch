@@ -13,9 +13,3 @@
     #import <Foundation/Foundation.h>
 #endif
 
-// From here to end of file added by Injection Plugin //
-
-#ifdef DEBUG
-#define INJECTION_ENABLED
-#import "/Applications/Injection Plugin.app/Contents/Resources/InjectionPlugin.xcplugin/Contents/Resources/BundleInterface.h"
-#endif
